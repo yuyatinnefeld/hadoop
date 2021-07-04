@@ -1,5 +1,4 @@
-
-#Setup Hadoop for Mac-User
+ # Setup Hadoop for Mac-User
 
 0. install hadoop
 ```bash
