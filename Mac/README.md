@@ -157,7 +157,7 @@ JobTracker:
 Node Specific Info:
 > http://localhost:8042/
 
-# Create HDFS
+# Create HDFS folders
 ```bash
 cd /usr/local/opt/hadoop/bin
 ```
