@@ -59,8 +59,6 @@ each offering local computation and storage.
 
 ## Setup
 
-Setup for Mac-User
-[Here](https://github.com/yuyatinnefeld/spark/tree/master/mac)
+[Setup for Mac-User](https://github.com/yuyatinnefeld/spark/tree/master/mac)
 
-Setup with Docker
-[Here](https://github.com/yuyatinnefeld/hadoop/tree/master/docker)
+[Setup with Docker](https://github.com/yuyatinnefeld/hadoop/tree/master/docker)

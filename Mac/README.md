@@ -1,5 +1,5 @@
 
-#Setup for Mac-User
+#Setup Hadoop for Mac-User
 
 0. install hadoop
 ```bash
@@ -157,3 +157,56 @@ JobTracker:
 
 Node Specific Info:
 > http://localhost:8042/
+
+# Create HDFS
+```bash
+cd /usr/local/opt/hadoop/bin
+```
+check the hdfs func working
+```bash
+hdfs dfs
+```
+
+```bash
+cd /usr/local/Cellar/hadoop/3.3.1/bin
+```
+
+create a new folder
+```bash
+hdfs dfs -mkdir <new-folder-path>
+```
+
+ex. hdfs dfs -mkdir /yt_new_directory
+
+create a new sub-folder
+```bash
+hdfs dfs -mkdir /yt_new_directory/new_sub_dir
+```
+
+check the folders
+```bash
+hdfs dfs -ls /
+hdfs dfs -ls /yt_new_directory
+```
+
+# Copy the local files to HDFS
+
+```bash
+touch test.txt
+touch test2.txt
+hdfs dfs -copyFromLocal test.txt /yt_new_directory
+hdfs dfs -copyFromLocal test2.txt /yt_new_directory
+hdfs dfs -ls /yt_new_directory
+```
+
+# Remove files and directory
+
+Removes all files in test directory
+```bash
+hdfs dfs -rm -r -f /yt_new_directory/test.txt
+```
+
+Removes empty directory
+```bash
+hdfs dfs -rmdir /yt_new_directory/
+```
