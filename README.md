@@ -46,6 +46,9 @@ each offering local computation and storage.
 - provides a distributed file system
 - highly fault-tolerant
 - is designed to be deployed on low-cost hardware
+- HDFS uses master-slave architecture
+    - master node => Namenode
+    - slave node => Datanode
 
 ### YARN
 - framework for job scheduling
@@ -61,3 +64,4 @@ each offering local computation and storage.
 
 [Setup for Mac-User](https://github.com/yuyatinnefeld/hadoop/tree/master/Mac)
 
+[Configuration with Spark](https://github.com/yuyatinnefeld/hadoop/tree/master/Spark)
