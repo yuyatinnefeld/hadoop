@@ -1,5 +1,5 @@
 from mrjob.job import MRJob
-from mrjob.set import MRStep
+from mrjob.step import MRStep
 
 class RatingsBreakdown(MRJob):
     def steps(self):
@@ -12,7 +12,7 @@ class RatingsBreakdown(MRJob):
 
     def mapper_get_ratings(self, _, line):
         (userID, movieID, ratings, timestamp) = line.split('\t')
-        yield rating, 1
+        yield ratings, 1
 
     def reducer_cont_ratings(self, key, values):
         yield key, sum(values)
