@@ -26,7 +26,7 @@ vi /usr/local/Cellar/hadoop/3.3.1/libexec/etc/hadoop/hadoop-env.sh
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 ```
 
-4. update the core-site.xml
+4. update the core-site.xml (/usr/local/Cellar/hadoop/3.3.1/libexec/etc/hadoop)
 ```xml
 ...
 <!-- Put site-specific property overrides in this file. -->
@@ -43,7 +43,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 </configuration>
 ```
 
-5. update the mapred-site.xml
+5. update the mapred-site.xml (/usr/local/Cellar/hadoop/3.3.1/libexec/etc/hadoop)
 ```xml
 ...
 <!-- Put site-specific property overrides in this file. -->
@@ -56,7 +56,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 </configuration>
 ```
 
-6. update the hdfs-site.xml
+6. update the hdfs-site.xml (/usr/local/Cellar/hadoop/3.3.1/libexec/etc/hadoop)
 
 ```xml
 ...
@@ -68,13 +68,28 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 </configuration>
 ```
 
-7. configure the ssh
+7. update yarn-site.xml (/usr/local/Cellar/hadoop/3.3.1/libexec/etc/hadoop)
+
+```xml   
+<configuration> 
+    <property>
+      <name>yarn.nodemanager.aux-services</name>
+      <value>mapreduce_shuffle</value>
+    </property>
+    <property>
+       <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+       <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    </property>
+</configuration>
+```
+
+8. configure the ssh
 
 activate remote login by Mac
 System Preferences> File Sharing > Remote Login
 ![GitHub Logo](/images/remote-login.png)
 
-7.0
+9. ssh setup
 ```bash
 ssh localhost
 ```
@@ -83,20 +98,20 @@ if you get this error
 ```bash
 ssh: connect to host localhost port 22: Connection refused
 ```
-7.1 run below commands and Authorize SSH Keys
+9.1 run below commands and Authorize SSH Keys
 ```bash
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 ```
 
-7.2 if you could log in it's fine
+9.2 if you could log in it's fine
 ```bash
 ssh localhost
 Last login: Sun Jul  4 15:55:24 2021 from ::1
 ```
 
-8 check the hdfs format
+10 check the hdfs format
 ```bash
 cd /usr/local/opt/hadoop
 hdfs namenode -format
@@ -120,7 +135,7 @@ SHUTDOWN_MSG: Shutting down NameNode at Yuyas-MBP/192.168.0.120
 ************************************************************/
 ```
 
-9. start hadoop server
+11. start hadoop server
 
 alias update
 ```bash
@@ -129,7 +144,7 @@ nano .bashrc
 alias hadoop_start="/usr/local/Cellar/hadoop/3.3.1/sbin/start-all.sh"
 alias hadoop_stop="/usr/local/Cellar/hadoop/3.3.1/sbin/stop-all.sh"
 ```
-
+run hadoop services
 ```bash
 hadoop_start
 ```
@@ -144,12 +159,11 @@ jps
 42326 DataNode
 42663 ResourceManager
 42220 NameNode
-37292 
 42878 Jps
 ```
 
 Resource Manager:
-> http://localhost:9870
+> http://localhost:9870/
 
 JobTracker:
 > http://localhost:8088/
@@ -157,55 +171,5 @@ JobTracker:
 Node Specific Info:
 > http://localhost:8042/
 
-# Create HDFS folders
-```bash
-cd /usr/local/opt/hadoop/bin
-```
-check the hdfs func working
-```bash
-hdfs dfs
-```
-
-```bash
-cd /usr/local/Cellar/hadoop/3.3.1/bin
-```
-
-create a new folder
-```bash
-hdfs dfs -mkdir <new-folder-path>
-```
-
-ex. hdfs dfs -mkdir /yt_new_directory
-
-create a new sub-folder
-```bash
-hdfs dfs -mkdir /yt_new_directory/new_sub_dir
-```
-
-check the folders
-```bash
-hdfs dfs -ls /
-hdfs dfs -ls /yt_new_directory
-```
-
-# Copy the local files to HDFS
-
-```bash
-touch test.txt
-touch test2.txt
-hdfs dfs -copyFromLocal test.txt /yt_new_directory
-hdfs dfs -copyFromLocal test2.txt /yt_new_directory
-hdfs dfs -ls /yt_new_directory
-```
-
-# Remove files and directory
-
-Removes all files in test directory
-```bash
-hdfs dfs -rm -r -f /yt_new_directory/test.txt
-```
-
-Removes empty directory
-```bash
-hdfs dfs -rmdir /yt_new_directory/
-```
+Yarn:
+> http://localhost:8088/
