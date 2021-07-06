@@ -50,3 +50,42 @@ b	6
 c	5
 ```
 
+Mapper Code (Python)
+
+```python
+def mapper_get_ratings(self, _, line):
+    (userID, movieID, ratings, timestamp) = line.split('\t')
+    yield rating, 1
+
+```
+Reducer Code (Python)
+
+```python
+def reducer_cont_ratings(self, key, values):
+    yield key, sum(values)
+```
+
+Total codes
+```python
+from mrjob.job import MRJob
+from mrjob.set import MRStep
+
+class RatingsBreakdown(MRJob):
+def steps(self):
+return [
+MRStep(
+mapper=self.mapper_get_ratings,
+reducer=self.reducer_cont_ratings
+)
+]
+
+    def mapper_get_ratings(self, _, line):
+        (userID, movieID, ratings, timestamp) = line.split('\t')
+        yield rating, 1
+
+    def reducer_cont_ratings(self, key, values):
+        yield key, sum(values)
+
+if __name__ == '__main__':
+RatingsBreakdown.run()
+```
