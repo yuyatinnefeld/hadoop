@@ -61,7 +61,7 @@ each offering local computation and storage.
 - mostly MapR replaced with Spark
 
 ## Setup
-[Hadoop Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Mac)
-[HDFS Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/HDFS)
-[MapReduce Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/MapReduce)
-[Spark Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Spark)
+- [Hadoop Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Mac)
+- [HDFS Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/HDFS)
+- [MapReduce Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/MapReduce)
+- [Spark Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Spark)
