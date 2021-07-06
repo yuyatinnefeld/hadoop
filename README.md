@@ -65,3 +65,10 @@ each offering local computation and storage.
 2. [HDFS Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/HDFS)
 3. [MapReduce Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/MapReduce)
 4. [Spark Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/spark)
+
+## Failure Handling
+- task / worker failure (MapR) => application master recovers
+- application master failure => YARN recovers
+- node manager failure => application master recovers
+- resource manager (YARN) failure => all running jobs fail and can't be recovered => use HA sate store (ZooKeeper, HDFS)
+

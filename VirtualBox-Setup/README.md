@@ -12,7 +12,20 @@ localhost:1080
    
 5. click LAUNCH DASHBOARD
 
-6. Login 
-   
-username = maria_dev
-passwort = maria_dev
+6. Login by Browser
+- username = maria_dev
+- password = maria_dev
+
+7. login by Shell 
+```bash
+ssh maria_dev@127.0.0.1 -p 2222
+password: maria_dev
+```
+
+```bash
+hadoop fs -ls
+```
+download a file from the website
+```bash
+wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
+```
