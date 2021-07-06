@@ -1,4 +1,4 @@
- # Setup Hadoop for Mac-User
+ # Setup Hadoop (Mac)
 
 0. install hadoop
 ```bash
@@ -111,7 +111,7 @@ ssh localhost
 Last login: Sun Jul  4 15:55:24 2021 from ::1
 ```
 
-10 check the hdfs format
+10. check the hdfs format
 ```bash
 cd /usr/local/opt/hadoop
 hdfs namenode -format
