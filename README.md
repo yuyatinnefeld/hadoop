@@ -47,8 +47,8 @@ each offering local computation and storage.
 - highly fault-tolerant
 - is designed to be deployed on low-cost hardware
 - HDFS uses master-slave architecture
-    - master node => Namenode
-    - slave node => Datanode
+    - master node => Name node
+    - slave node => Data node
 
 ### YARN
 - framework for job scheduling
