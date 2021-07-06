@@ -50,42 +50,23 @@ b	6
 c	5
 ```
 
-Mapper Code (Python)
-
-```python
-def mapper_get_ratings(self, _, line):
-    (userID, movieID, ratings, timestamp) = line.split('\t')
-    yield rating, 1
-
-```
-Reducer Code (Python)
-
-```python
-def reducer_cont_ratings(self, key, values):
-    yield key, sum(values)
+## MapReduce Python
+```bash
+mkdir hadoop_python
+cd hadoop_python
+mkdir project
+touch project/ratings_break_down.py
+python3 -m venv venv
+source ./venv/bin/activate
+pip install mrjob==0.7.4
+wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
+python project/ratings_break_down.py u.data
 ```
 
-Total codes
-```python
-from mrjob.job import MRJob
-from mrjob.step import MRStep
 
-class RatingsBreakdown(MRJob):
-def steps(self):
-return [
-MRStep(
-mapper=self.mapper_get_ratings,
-reducer=self.reducer_cont_ratings
-)
-]
-
-    def mapper_get_ratings(self, _, line):
-        (userID, movieID, ratings, timestamp) = line.split('\t')
-        yield ratings, 1
-
-    def reducer_cont_ratings(self, key, values):
-        yield key, sum(values)
-
-if __name__ == '__main__':
-RatingsBreakdown.run()
+```bash
+python project/ratings_break_down.py \
+-r hadoop --hadoop-streaming-jar \
+/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+u.data
 ```
