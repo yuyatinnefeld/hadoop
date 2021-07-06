@@ -64,4 +64,4 @@ each offering local computation and storage.
 - [Hadoop Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Mac)
 - [HDFS Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/HDFS)
 - [MapReduce Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/MapReduce)
-- [Spark Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Spark)
+- [Spark Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/spark)
