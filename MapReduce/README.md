@@ -61,6 +61,8 @@ source ./venv/bin/activate
 pip install mrjob==0.7.4
 wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
 python project/ratings_break_down.py u.data
+python project/movie_ranking.py u.data
+
 ```
 
 
