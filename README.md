@@ -60,6 +60,20 @@ each offering local computation and storage.
 - reliable, fault-tolerant
 - mostly MapR replaced with Spark
 
+### PIG
+- abstract over MapReduce
+- used for data manipulation
+- uses Pig-Latin language
+- quick data load
+
+### HIVE
+- built on the top of Hadoop
+- used for reporting
+- SWL-like interface
+- process structured data
+- uses HiveQL language
+- slow data load
+
 ## Setup
 1. [Hadoop Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/Setup)
 2. [HDFS Setup](https://github.com/yuyatinnefeld/hadoop/tree/master/HDFS)
