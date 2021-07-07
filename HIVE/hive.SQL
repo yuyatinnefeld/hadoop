@@ -3,7 +3,7 @@ SELECT movie_id, COUNT(movie_id) AS ratingCount
 FROM ratings
 GROUP BY movie_id
 ORDER BY ratingCount DESC;
- 
+
 
 SELECT n.name, ratingCount
 FROM topmovieWithID t
